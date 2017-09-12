@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html >
+<html>
+<head><meta charset="GB2312">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<script src="jquery.min.js"></script>
+	<title>DOAEZ</title>
+	<style type="text/css">
+	*{margin:0; padding:0;}
+	a{text-decoration: none;}
+	img{max-width: 100%; height: auto;}
+	.weixin-tip{display: none; position: fixed; left:0; top:0; bottom:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80);  height: 100%; width: 100%; z-index: 100;}
+	.weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}
+	</style></head>
+<body>
+
+<div class="weixin-tip">
+		<p>
+			<img src="live_weixin.png" alt="微信打开"/>
+		</p>
+	</div>
+	<script type="text/javascript">
+
+			$(window).on("load",function(){
+				function is_weixin() {
+			    var ua = navigator.userAgent.toLowerCase();
+			    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			        return true;
+			    } else {
+			        return false;
+			    }
+			}
+			
+			var winHeight = $(window).height();
+			
+			var isWeixin = is_weixin();
+			if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+				if(isWeixin){
+					$(".weixin-tip").css("height",winHeight);
+					$(".weixin-tip").show();
+				}
+				else
+				{
+					window.location.href ="https://itunes.apple.com/us/app/doaez/id1215113484?l=zh&ls=1&mt=8";
+				}
+			} else if (/(Android)/i.test(navigator.userAgent)) {
+				if(isWeixin){
+					$(".weixin-tip").css("height",winHeight);
+					$(".weixin-tip").show();
+				}
+				else
+				{
+					window.location.href ="http://www.doaez.cn.com/DOAEZ.apk";
+				}
+				
+			} else {
+				window.location.href ="http://www.doaez.cn.com/DOAEZ.apk";
+			};
+        })
+	</script>
+<script language='javascript'>
+
+</script>
+</body>
+</html>
